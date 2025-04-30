@@ -1,0 +1,45 @@
+@font-face {
+    font-family: 'Garamond';
+    src: url(../../../public/fonts/EB_Garamond/EBGaramond-VariableFont_wght.ttf) format(truetype);
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url(../../../public/fonts/Poppins/Poppins-Regular.ttf) format(truetype);
+    font-display: swap;
+}
+
+
+.spans {
+    span {
+        transition: .2s ease-in-out all;
+    }
+}
+
+.span1 {
+    transform: rotate(45deg);
+    top: 11px;
+    left: 1px;
+}
+
+.span2 {
+    transform: rotate(-45deg);
+    bottom: 5px;
+}
+
+.mobilenav {
+    font-family: 'Garamond';
+    color: #F2C427;
+    display: none;
+}
+
+.mobilenav.open {
+    display: block;
+}
+
+.mobilenav {
+    li {
+        letter-spacing: 5px;
+    }
+}

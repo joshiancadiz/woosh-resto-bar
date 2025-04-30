@@ -1,103 +1,71 @@
-import Image from "next/image";
+"use client"
+import Image from 'next/image';
+import Link from 'next/link';
+import styles from './styles/Home.module.scss';
+import f1 from '../../public/home-images/f1.jpg';
+import f2 from '../../public/home-images/f2.jpg';
+import m1 from '../../public/home-images/m1.jpg';
+import m2 from '../../public/home-images/m2.jpg';
+import { Parallax } from 'react-scroll-parallax';
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div>
+      <div className='absolute top-0 w-[100%] z-[-1] overflow-hidden'>
+      <Parallax translateY={[-30, 30]} speed={-10}>
+        <div className={styles.homebg}></div>
+      </Parallax>
+      </div>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      <div>
+      <div className={`${styles.hero} z-1 w-[100%] flex flex-col justify-center gap-[2rem] pb-[2rem]`}>
+        <div className='text-center'>
+          <h1 className='text-[4rem]'>WOOSH</h1>
+          <h2 className='text-[1.2rem] leading-0 mt-[-10px]'>Resto Bar</h2>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+        <div className='text-center'>
+          <h3 className='text-[1.2rem]'>Eat Well, Keep Well</h3>
+        </div>
+        <div className='flex gap-[1.3rem] text-[#fff] text-[.8rem] mx-auto'>
+          <button className='bg-[#F2C427]'>Book a Table</button>
+          <button className={`${styles.shmenu}`}>Show Menu</button>
+        </div>
+      </div>
+
+      <div className={`${styles.homecontent}`}>
+        <div className='px-[1.5rem] flex flex-col gap-[.7rem] mb-[2rem]'>
+          <h2 className='text-[2.2rem]'>OUR MENU</h2>
+          <p>Experience the joy of delicious food crafted to nourish your body, uplift your mood, and create unforgettable moments with every meal. Join us and savor the goodness you deserve.</p>
+          <h3 className='text-[1.1rem]'><Link href=''>EXPLORE MENU</Link></h3>
+        </div>
+
+        <div className='flex flex-col gap-[6px]'>
+          <div>
+            <Image src={f1} alt=''/>
+          </div>
+          <div>
+            <Image src={f2} alt=''/>
+          </div>
+        </div>
+      </div>
+
+      <div className={`${styles.homecontent}`}>
+        <div className='px-[1.5rem] flex flex-col gap-[.7rem] mb-[2rem]'>
+          <h2 className='text-[2.2rem]'>PURE MOMENTS</h2>
+          <p>Gather your friends and family and savor pure moments of laughter, great food, and unforgettable memories because the best times are meant to be shared.</p>
+          <h3 className='text-[1.1rem]'><Link href=''>RESERVE NOW</Link></h3>
+        </div>
+
+        <div className='flex flex-col gap-[6px]'>
+          <div>
+            <Image src={m1} alt=''/>
+          </div>
+          <div>
+            <Image src={m2} alt=''/>
+          </div>
+        </div>
+      </div>
+      </div>
     </div>
   );
 }

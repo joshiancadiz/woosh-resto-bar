@@ -1,0 +1,78 @@
+@font-face {
+    font-family: 'Garamond';
+    src: url(../../../public/fonts/EB_Garamond/EBGaramond-VariableFont_wght.ttf) format(truetype);
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url(../../../public/fonts/Poppins/Poppins-Regular.ttf) format(truetype);
+    font-display: swap;
+}
+
+.homebg {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../../../public/home-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 110vh;
+    width: 100%;
+}
+
+.hero {
+    height: 90vh;
+    width: 100%;
+    z-index: 1;
+    h1 {
+        font-family: 'Garamond';
+        font-weight: 600;
+        background: linear-gradient(90deg, #FDE07D 25%, #F2C427 100%);
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    h2, h3 {
+        font-family: 'Garamond';
+        font-weight: normal;
+        color: #FDE07D;
+    }
+
+    h2 {
+        letter-spacing: .5rem;
+    }
+
+    h3 {
+        letter-spacing: .35rem;
+    }
+
+    button {
+        font-family: 'Poppins';
+        padding: .7rem .6rem;
+    }
+
+    .shmenu {
+        border: #fff 1.5px solid;
+    }
+}
+
+.homecontent {
+    margin-top: 5rem;
+
+    h2, h3 {
+        font-family: 'Garamond';
+        letter-spacing: .35rem;
+    }
+
+    h2 {
+        line-height: 2.2rem;
+    }
+
+    h3 {
+        text-decoration: underline;
+        text-underline-offset: 4px;
+    }
+
+    p {
+        font-family: 'Poppins';
+        line-height: 1.3rem;
+    }
+}
