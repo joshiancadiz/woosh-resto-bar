@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import styles from "../styles/Nav.module.scss";
 import logo from "../../../public/logo/logo1.png";
-import woosh from "../../../public/logo/logo2.png";
+import woosh from "../../../public/logo/logo3.png";
 
 const Nav = () => {
 
@@ -12,8 +12,8 @@ const Nav = () => {
 
   return (
     <div className="sticky top-0 z-10">
-      <div className="bg-[#1E1E1E] h-[16vh] flex justify-between p-[1.5rem] items-center">
-        <div className="w-[60px] h-[60px]">
+      <div className="bg-[#1E1E1E] h-[14vh] flex justify-between px-[1.5rem] items-center">
+        <div className="w-[60px] h-[60px] z-[10]">
             <Image src={logo} alt="logo"/>
         </div>
         <div className={`${styles.spans} flex flex-col gap-[.8rem] z-10`} onClick={() => setisOpen(!isOpen)}>
@@ -23,12 +23,12 @@ const Nav = () => {
       </div>
 
       <div className={isOpen ? `${styles.mobilenav} ${styles.open} absolute top-0 w-[100%] h-[100vh] bg-[#1E1E1E]` : `${styles.mobilenav} absolute top-0 w-[100%] h-[100vh] bg-[#1E1E1E]`}>
-        <ul className="flex flex-col text-[1.6rem] gap-[1rem] items-center mt-[30%]">
-          <li className="mb-[10%]"><Image src={woosh} alt=""/></li>
-          <li><Link href=''>HOME</Link></li>
-          <li><Link href=''>MENU</Link></li>
-          <li><Link href=''>RESERVATIONS</Link></li>
-          <li><Link href=''>EVENTS</Link></li>
+        <ul className="flex flex-col text-[1.6rem] gap-[1rem] items-center mt-[40%]">
+          <li className="mb-[10%]"><Image src={woosh} alt="" width={200}/></li>
+          <li><Link href='/' onClick={() => {setTimeout(() => {setisOpen(false)}, 300)}}>HOME</Link></li>
+          <li><Link href='/menu' onClick={() => {setTimeout(() => {setisOpen(false)}, 300)}}>MENU</Link></li>
+          <li><Link href='' onClick={() => {setTimeout(() => {setisOpen(false)}, 300)}}>RESERVATIONS</Link></li>
+          <li><Link href='' onClick={() => {setTimeout(() => {setisOpen(false)}, 300)}}>EVENTS</Link></li>
         </ul>
       </div>
     </div>

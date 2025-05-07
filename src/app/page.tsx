@@ -26,9 +26,9 @@ export default function Home() {
         <div className='text-center'>
           <h3 className='text-[1.2rem]'>Eat Well, Keep Well</h3>
         </div>
-        <div className='flex gap-[1.3rem] text-[#fff] text-[.8rem] mx-auto'>
-          <button className='bg-[#F2C427]'>Book a Table</button>
-          <button className={`${styles.shmenu}`}>Show Menu</button>
+        <div className='flex gap-[1.3rem] text-[#fff] text-[1rem] mx-auto'>
+        <Link href=''><button className='bg-[#F2C427]'>Book a Table</button></Link>
+        <Link href='/menu'><button className={`${styles.shmenu}`}>Show Menu</button></Link>
         </div>
       </div>
 
@@ -36,7 +36,7 @@ export default function Home() {
         <div className='px-[1.5rem] flex flex-col gap-[.7rem] mb-[2rem]'>
           <h2 className='text-[2.2rem]'>OUR MENU</h2>
           <p>Experience the joy of delicious food crafted to nourish your body, uplift your mood, and create unforgettable moments with every meal. Join us and savor the goodness you deserve.</p>
-          <h3 className='text-[1.1rem]'><Link href=''>EXPLORE MENU</Link></h3>
+          <h3 className='text-[1.1rem]'><Link href='/menu'>EXPLORE MENU</Link></h3>
         </div>
 
         <div className='flex flex-col gap-[6px]'>

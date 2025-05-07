@@ -1,0 +1,38 @@
+@font-face {
+    font-family: 'Garamond';
+    src: url(../../../public/fonts/EB_Garamond/EBGaramond-VariableFont_wght.ttf) format(truetype);
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url(../../../public/fonts/Poppins/Poppins-Regular.ttf) format(truetype);
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'PoppinsSemiBold';
+    src: url(../../../public/fonts//Poppins/Poppins-Medium.ttf) format(truetype);
+    font-display: swap;
+}
+
+.menunav {
+
+    h1 {
+        font-family: "Garamond";
+        letter-spacing: .5rem;
+    }
+
+    li {
+        font-family: "Poppins";
+    }
+}
+
+.menucontent {
+
+    font-family: "Poppins";
+
+    h2 {
+        font-family: "PoppinsSemiBold";
+    }
+}

@@ -4,7 +4,13 @@
     font-display: swap;
 }
 
+@font-face {
+    font-family: 'Poppins';
+    src: url(../../../public/fonts/Poppins/Poppins-Regular.ttf) format(truetype);
+    font-display: swap;
+}
+
 .footer {
     font-family: 'Garamond';
-    letter-spacing: 2px;
+    letter-spacing: 3px;
 }

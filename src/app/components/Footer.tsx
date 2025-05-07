@@ -1,15 +1,15 @@
 import React from "react"
 import styles from "../styles/Footer.module.scss"
 import Image from "next/image";
-import woosh from "../../../public/logo/logo2.png"
+import woosh from "../../../public/logo/logo3.png"
 import fbicon from "../../../public/icons/fb.png"
 
 const Footer = () => {
   return (
-    <div className={`${styles.footer} bg-[#1E1E1E] text-[#fff] p-[1.5rem] flex flex-col gap-[2rem] text-[1.1rem]`}>
+    <div className={`${styles.footer} bg-[#1E1E1E] text-[#fff] px-[1.5rem] py-[2.5rem] flex flex-col gap-[2rem] text-[1.1rem]`}>
 
       <div>
-        <Image src={woosh} alt=""/>
+        <Image src={woosh} alt="" width={150}/>
       </div>
 
       <div className="flex flex-col gap-[.8rem]">
