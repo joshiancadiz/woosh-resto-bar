@@ -46,7 +46,7 @@ const Events = () => {
       </div>
 
       <div className="ml-auto w-[90%] h-[70vh] flex items-center">
-        <div data-aos="fade-left" data-aos-duration="1000" data-aos-easing="ease-in-sine" className="w-[100%]">
+        <div data-aos="fade-left" data-aos-duration="500" className="w-[100%]">
             <Image src={moreevents} alt="" className="w-[100%]"/>
         </div>
       </div>
