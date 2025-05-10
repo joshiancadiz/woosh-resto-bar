@@ -1,0 +1,57 @@
+@font-face {
+    font-family: 'Garamond';
+    src: url(../../../public/fonts/EB_Garamond/EBGaramond-VariableFont_wght.ttf) format(truetype);
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url(../../../public/fonts/Poppins/Poppins-Regular.ttf) format(truetype);
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'PoppinsBold';
+    src: url(../../../public/fonts/Poppins/Poppins-ExtraBold.ttf) format(truetype);
+    font-display: swap;
+}
+
+.eventsbg {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../../../public/events-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 110vh;
+    width: 100%;
+}
+
+.eventshero {
+
+    h1 {
+        font-family: "PoppinsBold";
+        line-height: 2.8rem;
+    }
+}
+
+.eventscontent {
+
+    margin-top: 5rem;
+
+    h2, h3 {
+        font-family: "Garamond";
+        letter-spacing: .35rem;
+    }
+
+    h2 {
+        line-height: 2.2rem;
+    }
+
+    h3 {
+        text-decoration: underline;
+        text-underline-offset: 4px;
+    }
+
+    p {
+        font-family: 'Poppins';
+        line-height: 1.3rem;
+    }
+}

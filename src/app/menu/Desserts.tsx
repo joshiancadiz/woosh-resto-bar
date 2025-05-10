@@ -5,7 +5,7 @@ const Desserts = () => {
   const desserts = [
     {
         name: 'Woosh Smoothies',
-        price: 299
+        price: 150
     },
     {
         name: 'Cakes per Slice',

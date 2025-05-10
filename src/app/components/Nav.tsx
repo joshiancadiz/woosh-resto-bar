@@ -23,12 +23,12 @@ const Nav = () => {
       </div>
 
       <div className={isOpen ? `${styles.mobilenav} ${styles.open} absolute top-0 w-[100%] h-[100vh] bg-[#1E1E1E]` : `${styles.mobilenav} absolute top-0 w-[100%] h-[100vh] bg-[#1E1E1E]`}>
-        <ul className="flex flex-col text-[1.6rem] gap-[1rem] items-center mt-[40%]">
-          <li className="mb-[10%]"><Image src={woosh} alt="" width={200}/></li>
+        <ul className="flex flex-col text-[1.6rem] gap-[2rem] items-center mt-[40%]">
+          <li className="mb-[8%]"><Image src={woosh} alt="" width={200}/></li>
           <li><Link href='/' onClick={() => {setTimeout(() => {setisOpen(false)}, 300)}}>HOME</Link></li>
           <li><Link href='/menu' onClick={() => {setTimeout(() => {setisOpen(false)}, 300)}}>MENU</Link></li>
           <li><Link href='' onClick={() => {setTimeout(() => {setisOpen(false)}, 300)}}>RESERVATIONS</Link></li>
-          <li><Link href='' onClick={() => {setTimeout(() => {setisOpen(false)}, 300)}}>EVENTS</Link></li>
+          <li><Link href='/events' onClick={() => {setTimeout(() => {setisOpen(false)}, 300)}}>EVENTS</Link></li>
         </ul>
       </div>
     </div>
