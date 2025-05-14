@@ -33,7 +33,7 @@ export default function Home() {
       </div>
 
       <div className={`${styles.homecontent}`}>
-        <div className='px-[1.5rem] flex flex-col gap-[.7rem] mb-[2rem]'>
+        <div className='px-[1.5rem] flex flex-col gap-[.7rem] my-[2rem]'>
           <h2 className='text-[2.2rem]'>OUR MENU</h2>
           <p>Experience the joy of delicious food crafted to nourish your body, uplift your mood, and create unforgettable moments with every meal. Join us and savor the goodness you deserve.</p>
           <h3 className='text-[1.1rem]'><Link href='/menu'>EXPLORE MENU</Link></h3>
@@ -50,7 +50,7 @@ export default function Home() {
       </div>
 
       <div className={`${styles.homecontent}`}>
-        <div className='px-[1.5rem] flex flex-col gap-[.7rem] mb-[2rem]'>
+        <div className='px-[1.5rem] flex flex-col gap-[.7rem] my-[2rem]'>
           <h2 className='text-[2.2rem]'>PURE MOMENTS</h2>
           <p>Gather your friends and family and savor pure moments of laughter, great food, and unforgettable memories because the best times are meant to be shared.</p>
           <h3 className='text-[1.1rem]'><Link href=''>RESERVE NOW</Link></h3>
