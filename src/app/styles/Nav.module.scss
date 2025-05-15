@@ -43,3 +43,26 @@
         letter-spacing: 5px;
     }
 }
+
+.pcnav {
+    font-family: "Garamond";
+    color: #FDE07D;
+
+    li {
+        letter-spacing: .2rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .mobilenav {
+        display: none;
+    }
+
+    .mobilenav.open {
+        display: none;
+    }
+
+    .spans {
+        display: none;
+    }
+}

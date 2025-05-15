@@ -14,12 +14,12 @@
     background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../../../public/home-bg.jpg');
     background-size: cover;
     background-position: center;
-    height: 100vh;
+    height: 120vh;
     width: 100%;
 }
 
 .hero {
-    height: 86vh;
+    height: 106vh;
     width: 100%;
     z-index: 1;
     h1 {
@@ -49,10 +49,22 @@
         padding: .7rem .6rem;
         box-sizing: border-box;
         height: 50px;
+        cursor: pointer;
+        transition: all .2s ease-in-out;
+    }
+
+    button:hover {
+        background-color: #FDE07D;
+        color: #000;
     }
 
     .shmenu {
         border: #fff 1.5px solid;
+    }
+
+    .shmenu:hover {
+        background-color: #fff;
+        color: #000;
     }
 }
 
@@ -75,5 +87,68 @@
     p {
         font-family: 'Poppins';
         line-height: 1.3rem;
+    }
+
+}
+
+.menuimage1 {
+    background-image: url(../../../public/home-images/f1.jpg);
+    height: 400px;
+    background-position: center;
+    background-size: cover;
+}
+
+.menuimage2 {
+    background-image: url(../../../public/home-images/f2.jpg);
+    height: 400px;
+    background-position: center;
+    background-size: cover;
+}
+
+.momentsimage1 {
+    background-image: url(../../../public//home-images/m1.jpg);
+    height: 400px;
+    background-position: center;
+    background-size: cover;
+}
+
+.momentsimage2 {
+    background-image: url(../../../public//home-images/m2.jpg);
+    height: 400px;
+    background-position: center;
+    background-size: cover;
+}
+
+@media (min-width: 768px) {
+    .homecontent {
+        h2 {
+            line-height: 3.5rem;
+        }
+    }
+
+    .menuimage1, .menuimage2, .momentsimage1, .momentsimage2 {
+        width: 50%;
+    }
+}
+
+@media (min-width: 1024px) {
+    .homecontent {
+
+        h2 {
+            line-height: 4.5rem;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+        }
+
+        p {
+            line-height: 1.8rem;
+            font-size: 1.2rem;
+        }
+    }
+
+    .menuimage1, .menuimage2 {
+        height: 500px;
     }
 }
