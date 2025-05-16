@@ -38,14 +38,14 @@ const Menu = () => {
   return (
     <div className="px-[1.5rem] py-[2rem]">
       <div className={`${styles.menunav} mb-[3rem]`}>
-        <h1 className="text-[2.2rem] text-center mb-[3rem]">OUR MENU</h1>
+        <h1 className="text-[2.2rem] text-center mb-[3rem] md:text-[4rem] lg:text-[5rem]">OUR MENU</h1>
         <ul className="flex flex-wrap gap-x-[3rem] gap-y-[1rem] justify-center">
           <MenuTypeItem id={0} label="MEALS" activeId={activeId} onClick={setActiveId} />
           <MenuTypeItem id={1} label="DESSERTS" activeId={activeId} onClick={setActiveId} />
           <MenuTypeItem id={2} label="DRINKS" activeId={activeId} onClick={setActiveId} />
         </ul>
       </div>
-      <div className={`${styles.menucontent} mt-[8rem]`}>
+      <div className={`${styles.menucontent} mt-[8rem] lg:mb-[4rem]`}>
        {content}
       </div>
     </div>

@@ -157,10 +157,10 @@ const spirits = [
 
 const Drinks = () => {
   return (
-    <div className="flex flex-col gap-[6rem]">
+    <div className="flex flex-col gap-[6rem] md:grid md:grid-cols-2">
 
       <div className="flex flex-col gap-[1.8rem]">
-        <h3 className="text-[1.4rem]">Non-Alcoholic Beverages</h3>
+        <h3 className="text-[1.4rem] lg:text-[2rem]">Non-Alcoholic Beverages</h3>
       {nonalcoholics.map((nonalcoholic, index) => (
           <div key={index} className="flex justify-between gap-[.4rem]">
             <h2 className="w-[50%]">{nonalcoholic.name}</h2>
@@ -170,7 +170,7 @@ const Drinks = () => {
       </div>
 
       <div className="flex flex-col gap-[1.8rem]">
-        <h3 className="text-[1.4rem]">Beers</h3>
+        <h3 className="text-[1.4rem] lg:text-[2rem]">Beers</h3>
       {beers.map((beer, index) => (
           <div key={index} className="flex justify-between gap-[.4rem]">
             <h2 className="w-[50%]">{beer.name}</h2>
@@ -180,7 +180,7 @@ const Drinks = () => {
       </div>
 
       <div className="flex flex-col gap-[1.8rem]">
-        <h3 className="text-[1.4rem]">Wines</h3>
+        <h3 className="text-[1.4rem] lg:text-[2rem]">Wines</h3>
       {wines.map((wine, index) => (
           <div key={index} className="flex justify-between gap-[.4rem]">
             <h2 className="w-[50%]">{wine.name}</h2>
@@ -190,7 +190,7 @@ const Drinks = () => {
       </div>
 
       <div className="flex flex-col gap-[1.8rem]">
-        <h3 className="text-[1.4rem]">Cocktails</h3>
+        <h3 className="text-[1.4rem] lg:text-[2rem]">Cocktails</h3>
       {cocktails.map((cocktail, index) => (
           <div key={index} className="flex justify-between gap-[.4rem]">
             <h2 className="w-[50%]">{cocktail.name}</h2>
@@ -200,7 +200,7 @@ const Drinks = () => {
       </div>
 
       <div className="flex flex-col gap-[1.8rem]">
-        <h3 className="text-[1.4rem]">Spirits/Hard Liquor</h3>
+        <h3 className="text-[1.4rem] lg:text-[2rem]">Spirits/Hard Liquor</h3>
       {spirits.map((spirit, index) => (
           <div key={index} className="flex justify-between gap-[.4rem]">
             <h2 className="w-[50%]">{spirit.name}</h2>

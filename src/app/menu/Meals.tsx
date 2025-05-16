@@ -107,11 +107,11 @@ const Meals = () => {
   ]
 
   return (
-    <div className="flex flex-col gap-[2.2rem]">
+    <div className="flex flex-col gap-[2.2rem] md:grid md:grid-cols-2 lg:grid-cols-3">
       {meals.map((meal, index) => (
           <div key={index} className="flex flex-col gap-[.4rem]">
             <h2>{meal.name}</h2>
-            <p>{meal.description}</p>
+            <p className="md:w-[300px]">{meal.description}</p>
             <p>Price: ₱{meal.price}</p>
           </div>
         ))}

@@ -30,6 +30,24 @@
         font-family: "PoppinsBold";
         line-height: 2.8rem;
     }
+
+    @media (min-width: 768px) {
+        h1 {
+            line-height: 4rem;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        h1 {
+            line-height: 5rem;
+        }
+    }
+
+    @media (min-width: 1280px) {
+        h1 {
+            line-height: 6rem;
+        }
+    }
 }
 
 .eventscontent {
@@ -53,5 +71,21 @@
     p {
         font-family: 'Poppins';
         line-height: 1.3rem;
+    }
+
+    @media (min-width: 768px) {
+        h2 {
+            line-height: 3rem;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        h2 {
+            line-height: 4.5rem;
+        }
+
+        p {
+            line-height: 1.8rem;
+        }
     }
 }

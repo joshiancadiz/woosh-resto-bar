@@ -1,8 +1,13 @@
-"use client"
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
-import { ParallaxProvider } from "react-scroll-parallax";
 import "./globals.css";
+
+export const metadata = {
+  title: "Woosh Resto Bar",
+  icons: {
+    icon: "/logo/favicon.ico"
+  }
+}
 
 
 export default function RootLayout({
@@ -14,9 +19,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Nav />
-          <ParallaxProvider>
             {children}
-          </ParallaxProvider>
         <Footer />
       </body>
     </html>

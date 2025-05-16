@@ -53,10 +53,10 @@ const Desserts = () => {
     },
   ]  
   return (
-    <div className="flex flex-col gap-[1.8rem]">
+    <div className="flex flex-col gap-[1.8rem] md:grid md:grid-cols-2 md:gap-x-[2.5rem]">
       {desserts.map((dessert, index) => (
           <div key={index} className="flex justify-between gap-[.4rem]">
-            <h2 className="w-[50%]">{dessert.name}</h2>
+            <h2 className="w-[50%] md:w-[60%]">{dessert.name}</h2>
             <p>Price: ₱{dessert.price}</p>
           </div>
         ))}

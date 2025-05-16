@@ -40,9 +40,9 @@ const Footer = () => {
 
       <div className="mb-[2rem]">
         <p className="text-[1.3rem] mb-[.5rem]">Let’s Get Social</p>
-        <div className="flex gap-[.5rem]">
-          <Image src={fbicon} alt="" width={30}/>
-          <p className="self-end">Woosh Resto Bar</p>
+        <div className="flex items-center gap-[.5rem]">
+          <Image src={fbicon} alt="" className="w-[30px]"/>
+          <p className="">Woosh Resto Bar</p>
         </div>
       </div>
       </div>

@@ -2,24 +2,27 @@
 import Link from 'next/link';
 import styles from './styles/Home.module.scss';
 import { Parallax } from 'react-scroll-parallax';
+import { ParallaxProvider } from "react-scroll-parallax";
 
 export default function Home() {
   return (
     <div>
+      <ParallaxProvider>
       <div className='absolute top-0 w-[100%] z-[-1] overflow-hidden'>
       <Parallax translateY={[-30, 30]} speed={-10}>
         <div className={styles.homebg}></div>
       </Parallax>
       </div>
+      </ParallaxProvider>
 
       <div>
       <div className={`${styles.hero} z-1 w-[100%] flex flex-col justify-center gap-[2rem]`}>
         <div className='text-center'>
-          <h1 className='text-[4rem]'>WOOSH</h1>
-          <h2 className='text-[1.2rem] leading-0 mt-[-10px]'>Resto Bar</h2>
+          <h1 className='text-[4rem] lg:text-[6rem]'>WOOSH</h1>
+          <h2 className='text-[1.2rem] leading-0 mt-[-10px] lg:text-[1.8rem]'>Resto Bar</h2>
         </div>
         <div className='text-center'>
-          <h3 className='text-[1.2rem]'>Eat Well, Keep Well</h3>
+          <h3 className='text-[1.2rem] lg:text-[1.8rem]'>Eat Well, Keep Well</h3>
         </div>
         <div className='flex gap-[1.3rem] text-[#fff] text-[1rem] mx-auto mb-[30%] lg:mb-[10%]'>
         <Link href=''><button className='bg-[#F2C427]'>Book a Table</button></Link>
