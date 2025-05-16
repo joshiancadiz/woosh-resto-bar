@@ -85,7 +85,7 @@ const Events = () => {
             <Image src={moreeventsmobile} alt="" className="w-[100%]"/>
         </div>
       {/* desktop */}
-        <div data-aos="fade-left" data-aos-duration="500" className="w-[50%]">
+        <div data-aos="fade-left" data-aos-duration="500" className="hidden lg:block w-[50%]">
             <Image src={moreeventsdesktop} alt="" className="w-[100%]"/>
         </div>
       </div>
