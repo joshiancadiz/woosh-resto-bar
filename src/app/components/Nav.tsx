@@ -20,7 +20,7 @@ const Nav = () => {
           <ul className="flex items-end h-[90%] py-[1.5rem] gap-[3rem]">
             <li><Link href='/'>HOME</Link></li>
             <li><Link href='/menu'>MENU</Link></li>
-            <li><Link href=''>RESERVATIONS</Link></li>
+            <li><Link href='/reservations'>RESERVATIONS</Link></li>
             <li><Link href='/events'>EVENTS</Link></li>
           </ul>
         </div>
@@ -35,7 +35,7 @@ const Nav = () => {
           <li className="mb-[8%]"><Image src={woosh} alt="" width={200}/></li>
           <li><Link href='/' onClick={() => {setTimeout(() => {setisOpen(false)}, 300)}}>HOME</Link></li>
           <li><Link href='/menu' onClick={() => {setTimeout(() => {setisOpen(false)}, 300)}}>MENU</Link></li>
-          <li><Link href='' onClick={() => {setTimeout(() => {setisOpen(false)}, 300)}}>RESERVATIONS</Link></li>
+          <li><Link href='/reservations' onClick={() => {setTimeout(() => {setisOpen(false)}, 300)}}>RESERVATIONS</Link></li>
           <li><Link href='/events' onClick={() => {setTimeout(() => {setisOpen(false)}, 300)}}>EVENTS</Link></li>
         </ul>
       </div>
