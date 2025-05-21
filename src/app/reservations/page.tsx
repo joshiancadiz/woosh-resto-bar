@@ -68,7 +68,7 @@ export default function Reservation() {
   return (
     <div className={`${styles.reserveS1} py-[3rem] px-[1.5rem]`}>
       <h1 className='text-[1.8rem] mb-[1rem]'>BOOK A TABLE</h1>
-        {isClient && <ReservationForm/>}
+        {isClient && <ReservationForm />}
     </div>
   )
 }
