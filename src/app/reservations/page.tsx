@@ -30,7 +30,7 @@ export default function Reservation() {
             </div>
             <div>
                 <label htmlFor="date">Date</label>
-                <input type="date" id='date' name='date' required />
+                <input type="date" id='date' name='date' placeholder='Select a Date' required />
             </div>
             <div>
                 <label htmlFor="time">Time</label>

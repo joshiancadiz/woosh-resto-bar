@@ -50,6 +50,24 @@
         padding: 0.625rem;
     }
 
+    input[type="date"] {
+        background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22none%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20stroke%3D%22%236B7280%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%221.5%22%20d%3D%22M8%207V3m8%204V3M3%2010h18M5%2021h14a2%202%200%20002-2V7a2%202%200%2000-2-2H5a2%202%200%2000-2%202v12a2%202%200%20002%202z%22%2F%3E%3C%2Fsvg%3E");
+        background-size: 1.5em 1.5em;
+        background-position: right 0.5rem center;
+        background-repeat: no-repeat;
+        padding-right: 2.5rem;
+        position: relative;
+    }
+
+    input[type="date"]::-webkit-calendar-picker-indicator {
+        opacity: 0;
+        position: absolute;
+        right: 0;
+        width: 100%;
+        height: 25px;
+        cursor: pointer;
+    }
+
     select {
         appearance: none;
         background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22none%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cpath%20stroke%3D%22%236B7280%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%221.5%22%20d%3D%22m6%208%204%204%204-4%22%2F%3E%3C%2Fsvg%3E");
