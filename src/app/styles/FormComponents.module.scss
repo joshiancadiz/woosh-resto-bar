@@ -1,0 +1,47 @@
+@font-face {
+    font-family: 'Garamond';
+    src: url(../../../public/fonts/EB_Garamond/EBGaramond-VariableFont_wght.ttf) format(truetype);
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url(../../../public/fonts/Poppins/Poppins-Regular.ttf) format(truetype);
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'PoppinsBold';
+    src: url(../../../public/fonts/Poppins/Poppins-ExtraBold.ttf) format(truetype);
+    font-display: swap;
+}
+
+.select {
+    width: 100%;
+    border: 1.3px solid;
+
+    Button {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding: .5rem;
+        cursor: pointer;
+    }
+}
+
+.popover {
+    border: 1px solid #b5b5b5;
+    width: 100%;
+    overflow: auto;
+    background-color: #fff;
+}
+
+.popover[data-trigger=Select] {
+    width: var(--trigger-width);
+}
+
+.listboxitems {
+    border-bottom: 1px solid #b5b5b5;
+    padding: .2rem .5rem;
+    cursor: pointer;
+}

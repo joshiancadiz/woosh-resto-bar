@@ -1,6 +1,11 @@
 "use client"
 import React, { useEffect, useState } from 'react'
 import styles from "../styles/Reservations.module.scss"
+import formStyles from "../styles/FormComponents.module.scss"
+import {Button, Label, ListBox, ListBoxItem, Popover, Select, SelectValue, Calendar, CalendarCell, CalendarGrid, DateInput, DatePicker, DateSegment, Dialog, Group, Heading} from 'react-aria-components';
+import Image from 'next/image';
+import selectArrow from '../../../public/icons/select-arow.png'
+
 
 export default function Reservation() {
 
@@ -10,63 +15,125 @@ export default function Reservation() {
     setClient(true)
   }, [])
 
+  const time = ([
+    {id: 1, time: '11:00 AM', value: '11:00'},
+    {id: 2, time: '11:30 AM', value: '11:30'},
+    {id: 3, time: '12:00 PM', value: '12:00'},
+    {id: 4, time: '12:30 PM', value: '12:30'},
+    {id: 5, time: '1:00 PM', value: '13:00'},
+    {id: 6, time: '1:30 PM', value: '13:30'},
+    {id: 7, time: '2:00 PM', value: '14:00'},
+    {id: 8, time: '2:30 PM', value: '14:30'},
+    {id: 9, time: '3:00 PM', value: '15:00'},
+    {id: 10, time: '3:30 PM', value: '15:30'},
+    {id: 11, time: '4:00 PM', value: '16:00'},
+    {id: 12, time: '4:30 PM', value: '16:30'},
+    {id: 13, time: '5:00 PM', value: '17:00'},
+    {id: 14, time: '5:30 PM', value: '17:30'},
+    {id: 15, time: '6:00 PM', value: '18:00'},
+    {id: 16, time: '6:30 PM', value: '18:30'},
+    {id: 17, time: '7:00 PM', value: '19:00'},
+    {id: 18, time: '7:30 PM', value: '19:30'},
+    {id: 19, time: '8:00 PM', value: '20:00'},
+    {id: 20, time: '8:30 PM', value: '20:30'},
+    {id: 21, time: '9:00 PM', value: '21:00'},
+    {id: 22, time: '9:30 PM', value: '21:30'},
+    {id: 23, time: '10:00 PM', value: '22:00'},
+    {id: 24, time: '10:30 PM', value: '22:30'},
+  ])
+
+  const guests = ([
+    {id: 1, value: 1},
+    {id: 2, value: 2},
+    {id: 3, value: 3},
+    {id: 4, value: 4},
+    {id: 5, value: 5},
+    {id: 6, value: 6},
+    {id: 7, value: 7},
+    {id: 8, value: 8},
+    {id: 9, value: 9},
+    {id: 10, value: 10}
+  ])
+
   const ReservationForm = () => {
     return(
         <form action="" className={styles.form1}>
-            <div>
-                <label htmlFor="guests">Party Size</label>
-                <select id='guests' name='guests' required>
-                    <option value="1">1 guest</option> 
-                    <option value="2">2 guests</option>
-                    <option value="3">3 guests</option>
-                    <option value="4">4 guests</option>
-                    <option value="5">5 guests</option>
-                    <option value="6">6 guests</option>
-                    <option value="7">7 guests</option>
-                    <option value="8">8 guests</option>
-                    <option value="9">9 guests</option>
-                    <option value="10">10 guests</option>
-                </select>
+            <div className='flex flex-col gap-[.5rem]'>
+            <Label htmlFor='party' >Party Size</Label>
+                <Select name='party' id='party' className={formStyles.select}>
+                  <Button aria-label='label'>
+                    <SelectValue>
+                    {({defaultChildren, isPlaceholder}) => {
+                      return isPlaceholder ? <>Select number of guests</> : defaultChildren;
+                    }}
+                    </SelectValue>
+                    <span aria-hidden="true"><Image src={selectArrow} alt=''/></span>
+                  </Button>
+                  {/* <FieldError /> */}
+                  <Popover className={formStyles.popover} trigger='Select'>
+                    <ListBox className={formStyles.listbox}>
+                    {guests.map((item) => (
+                        <ListBoxItem key={item.id} id={item.value} className={formStyles.listboxitems}>
+                          {item.value === 1 ? item.value + ' guest' : item.value + ' guests'}
+                        </ListBoxItem>
+                      ))}
+                    </ListBox>
+                  </Popover>
+                </Select>
             </div>
-            <div>
-                <label htmlFor="date">Date</label>
-                <input type="date" id='date' name='date' placeholder='Select a Date' required />
+            <div className='flex flex-col gap-[.5rem]'>
+            <DatePicker>
+                <Label>Date</Label>
+                <Group>
+                  <DateInput>
+                    {(segment) => <DateSegment segment={segment} />}
+                  </DateInput>
+                  <Button>▼</Button>
+                </Group>
+                <Popover>
+                  <Dialog>
+                    <Calendar>
+                      <header>
+                        <Button slot="previous">◀</Button>
+                        <Heading />
+                        <Button slot="next">▶</Button>
+                      </header>
+                      <CalendarGrid>
+                        {(date) => <CalendarCell date={date} />}
+                      </CalendarGrid>
+                    </Calendar>
+                  </Dialog>
+                </Popover>
+              </DatePicker>  
             </div>
-            <div>
-                <label htmlFor="time">Time</label>
-                <select name="time" id="time" required>
-                    <option value="">Select a time</option>
-                    <option value="11:00">11:00 AM</option>
-                    <option value="11:30">11:30 AM</option>
-                    <option value="12:00">12:00 PM</option>
-                    <option value="12:30">12:30 PM</option>
-                    <option value="13:00">1:00 PM</option>
-                    <option value="13:30">1:30 PM</option>
-                    <option value="14:00">2:00 PM</option>
-                    <option value="14:30">2:30 PM</option>
-                    <option value="15:00">3:00 PM</option>
-                    <option value="15:30">3:30 PM</option>
-                    <option value="16:00">4:00 PM</option>
-                    <option value="16:30">4:30 PM</option>
-                    <option value="17:00">5:00 PM</option>
-                    <option value="17:30">5:30 PM</option>
-                    <option value="18:00">6:00 PM</option>
-                    <option value="18:30">6:30 PM</option>
-                    <option value="19:00">7:00 PM</option>
-                    <option value="19:30">7:30 PM</option>
-                    <option value="20:00">8:00 PM</option>
-                    <option value="20:30">8:30 PM</option>
-                    <option value="21:00">9:00 PM</option>
-                    <option value="21:30">9:30 PM</option>
-                    <option value="22:00">10:00 PM</option>
-                </select>
-            </div>
+            <div className='flex flex-col gap-[.5rem]'>
+            <Label htmlFor='time' aria-label='time'>Time</Label>
+                <Select name='time' id='time' className={formStyles.select}>
+                  <Button>
+                    <SelectValue>
+                    {({defaultChildren, isPlaceholder}) => {
+                      return isPlaceholder ? <>Select a time</> : defaultChildren;
+                    }}
+                    </SelectValue>
+                    <span aria-hidden="true"><Image src={selectArrow} alt=''/></span>
+                  </Button>
+                  <Popover className={formStyles.popover}>
+                    <ListBox>
+                    {time.map((item) => (
+                        <ListBoxItem key={item.id} id={item.value} className={formStyles.listboxitems}>
+                          {item.time}
+                        </ListBoxItem>
+                      ))}
+                    </ListBox>
+                  </Popover>
+                </Select>
+              </div>
             <button type='submit'>Find a Table</button>
         </form>
     )
   }
   return (
-    <div className={`${styles.reserveS1} py-[3rem] px-[1.5rem]`}>
+    <div className={`${styles.reserveS1} py-[3rem] px-[1.5rem] overflow-hidden`}>
       <h1 className='text-[1.8rem] mb-[1rem]'>BOOK A TABLE</h1>
         {isClient && <ReservationForm />}
     </div>
