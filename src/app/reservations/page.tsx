@@ -5,6 +5,7 @@ import formStyles from "../styles/FormComponents.module.scss"
 import {Button, Label, ListBox, ListBoxItem, Popover, Select, SelectValue, Calendar, CalendarCell, CalendarGrid, DateInput, DatePicker, DateSegment, Dialog, Group, Heading} from 'react-aria-components';
 import Image from 'next/image';
 import selectArrow from '../../../public/icons/select-arow.png'
+import calendarIcon from '../../../public/icons/calendar.png'
 
 
 export default function Reservation() {
@@ -64,13 +65,13 @@ export default function Reservation() {
                   <Button aria-label='label'>
                     <SelectValue>
                     {({defaultChildren, isPlaceholder}) => {
-                      return isPlaceholder ? <>Select number of guests</> : defaultChildren;
+                      return isPlaceholder ? <>Number of guests</> : defaultChildren;
                     }}
                     </SelectValue>
                     <span aria-hidden="true"><Image src={selectArrow} alt=''/></span>
                   </Button>
                   {/* <FieldError /> */}
-                  <Popover className={formStyles.popover} trigger='Select'>
+                  <Popover className={formStyles.popover} trigger='Select' offset={0}>
                     <ListBox className={formStyles.listbox}>
                     {guests.map((item) => (
                         <ListBoxItem key={item.id} id={item.value} className={formStyles.listboxitems}>
@@ -82,24 +83,24 @@ export default function Reservation() {
                 </Select>
             </div>
             <div className='flex flex-col gap-[.5rem]'>
-            <DatePicker>
-                <Label>Date</Label>
-                <Group>
-                  <DateInput>
+            <Label htmlFor='date'>Date</Label>
+            <DatePicker name='date' id='name' className={formStyles.datepicker}>
+                <Group className={formStyles.datepickergroup}>
+                  <DateInput className={formStyles.dateinput}>
                     {(segment) => <DateSegment segment={segment} />}
                   </DateInput>
-                  <Button>▼</Button>
+                  <Button><span aria-hidden="true"><Image src={calendarIcon} alt=''/></span></Button>
                 </Group>
-                <Popover>
+                <Popover className={`${formStyles.datepopover} datepopover`} offset={0}>
                   <Dialog>
-                    <Calendar>
-                      <header>
-                        <Button slot="previous">◀</Button>
-                        <Heading />
-                        <Button slot="next">▶</Button>
+                    <Calendar className={formStyles.calendar}>
+                      <header className='flex justify-between'>
+                        <Button slot="previous"><Image src={selectArrow} className='rotate-90' alt=''/></Button>
+                        <Heading className={formStyles.heading} />
+                        <Button slot="next"><Image src={selectArrow} className='rotate-270' alt=''/></Button>
                       </header>
-                      <CalendarGrid>
-                        {(date) => <CalendarCell date={date} />}
+                      <CalendarGrid className={formStyles.calendargrid}>
+                        {(date) => <CalendarCell date={date} className={formStyles.calendarcell} />}
                       </CalendarGrid>
                     </Calendar>
                   </Dialog>
@@ -117,7 +118,7 @@ export default function Reservation() {
                     </SelectValue>
                     <span aria-hidden="true"><Image src={selectArrow} alt=''/></span>
                   </Button>
-                  <Popover className={formStyles.popover}>
+                  <Popover className={formStyles.popover} offset={0}>
                     <ListBox>
                     {time.map((item) => (
                         <ListBoxItem key={item.id} id={item.value} className={formStyles.listboxitems}>
