@@ -30,7 +30,7 @@
 }
 
 .popover {
-    border: 1px solid #b5b5b5;
+    border: 1.3px solid #b5b5b5;
     width: 100%;
     overflow: auto;
     background-color: #fff;
@@ -41,8 +41,8 @@
 }
 
 .listboxitems {
-    border-bottom: 1px solid #b5b5b5;
-    padding: .2rem .5rem;
+    border-bottom: 1.3px solid #b5b5b5;
+    padding: .5rem;
     cursor: pointer;
 
     &:focus {
@@ -114,10 +114,10 @@
     }
   
     .calendarcell {
-      line-height: 2rem;
+      line-height: 2.5rem;
       text-align: center;
       border-radius: 6px;
-      cursor: default;
+      cursor: pointer;
       outline: none;
       margin: 1px;
   
