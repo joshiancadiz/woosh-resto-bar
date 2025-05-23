@@ -60,9 +60,8 @@ export default function Reservation() {
   const ReservationForm = () => {
     return(
         <form action="" className={styles.form1}>
-            <div className='flex flex-col gap-[.5rem]'>
-            <Label htmlFor='party' >Party Size</Label>
-                <Select name='party' id='party' className={formStyles.select} aria-label='Select number of guests'>
+              <Select name='party' id='party' className={formStyles.select} aria-label='Select number of guests'>
+                <Label htmlFor='party' >Party Size</Label>
                   <Button aria-label='label'>
                     <SelectValue>
                     {({defaultChildren, isPlaceholder}) => {
@@ -82,10 +81,8 @@ export default function Reservation() {
                     </ListBox>
                   </Popover>
                 </Select>
-            </div>
-            <div>
             <DatePicker name='date' id='date' className={formStyles.datepicker} aria-label='Pick a date'>
-            <Label htmlFor='date'>Date</Label>
+              <Label htmlFor='date'>Date</Label>
                 <Group className={formStyles.datepickergroup}>
                   <DateInput className={formStyles.dateinput}>
                     {(segment) => <DateSegment segment={segment} />}
@@ -107,10 +104,8 @@ export default function Reservation() {
                   </Dialog>
                 </Popover>
               </DatePicker>  
-            </div>
-            <div className='flex flex-col gap-[.5rem]'>
-            <Label htmlFor='time'>Time</Label>
-                <Select name='time' id='time' className={formStyles.select} aria-label='Select a time'>
+              <Select name='time' id='time' className={formStyles.select} aria-label='Select a time'>
+              <Label htmlFor='time'>Time</Label>
                   <Button>
                     <SelectValue>
                     {({defaultChildren, isPlaceholder}) => {
@@ -129,7 +124,6 @@ export default function Reservation() {
                     </ListBox>
                   </Popover>
                 </Select>
-              </div>
             <button type='submit'>Find a Table</button>
         </form>
     )
