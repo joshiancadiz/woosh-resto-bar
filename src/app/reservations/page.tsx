@@ -6,11 +6,12 @@ import {Button, Label, ListBox, ListBoxItem, Popover, Select, SelectValue, Calen
 import Image from 'next/image';
 import selectArrow from '../../../public/icons/select-arow.png'
 import calendarIcon from '../../../public/icons/calendar.png'
+import calendarNext from "../../../public/icons/calendar-next.png"
 
 
 export default function Reservation() {
 
-  const [isClient, setClient]=  useState(false);
+  const [isClient, setClient] = useState(false);
 
   useEffect(() => {
     setClient(true)
@@ -61,7 +62,7 @@ export default function Reservation() {
         <form action="" className={styles.form1}>
             <div className='flex flex-col gap-[.5rem]'>
             <Label htmlFor='party' >Party Size</Label>
-                <Select name='party' id='party' className={formStyles.select}>
+                <Select name='party' id='party' className={formStyles.select} aria-label='Select number of guests'>
                   <Button aria-label='label'>
                     <SelectValue>
                     {({defaultChildren, isPlaceholder}) => {
@@ -82,22 +83,22 @@ export default function Reservation() {
                   </Popover>
                 </Select>
             </div>
-            <div className='flex flex-col gap-[.5rem]'>
+            <div>
+            <DatePicker name='date' id='date' className={formStyles.datepicker} aria-label='Pick a date'>
             <Label htmlFor='date'>Date</Label>
-            <DatePicker name='date' id='name' className={formStyles.datepicker}>
                 <Group className={formStyles.datepickergroup}>
                   <DateInput className={formStyles.dateinput}>
                     {(segment) => <DateSegment segment={segment} />}
                   </DateInput>
                   <Button><span aria-hidden="true"><Image src={calendarIcon} alt=''/></span></Button>
                 </Group>
-                <Popover className={`${formStyles.datepopover} datepopover`} offset={0}>
+                <Popover className={formStyles.datepopover}>
                   <Dialog>
                     <Calendar className={formStyles.calendar}>
                       <header className='flex justify-between'>
-                        <Button slot="previous"><Image src={selectArrow} className='rotate-90' alt=''/></Button>
+                        <Button slot="previous"><Image src={calendarNext} className='rotate-90' alt=''/></Button>
                         <Heading className={formStyles.heading} />
-                        <Button slot="next"><Image src={selectArrow} className='rotate-270' alt=''/></Button>
+                        <Button slot="next"><Image src={calendarNext} className='rotate-270' alt=''/></Button>
                       </header>
                       <CalendarGrid className={formStyles.calendargrid}>
                         {(date) => <CalendarCell date={date} className={formStyles.calendarcell} />}
@@ -108,8 +109,8 @@ export default function Reservation() {
               </DatePicker>  
             </div>
             <div className='flex flex-col gap-[.5rem]'>
-            <Label htmlFor='time' aria-label='time'>Time</Label>
-                <Select name='time' id='time' className={formStyles.select}>
+            <Label htmlFor='time'>Time</Label>
+                <Select name='time' id='time' className={formStyles.select} aria-label='Select a time'>
                   <Button>
                     <SelectValue>
                     {({defaultChildren, isPlaceholder}) => {
