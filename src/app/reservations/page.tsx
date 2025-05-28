@@ -2,12 +2,13 @@
 import React, { useEffect, useState } from 'react'
 import styles from "../styles/Reservations.module.scss"
 import formStyles from "../styles/FormComponents.module.scss"
-import {Button, Label, ListBox, ListBoxItem, Popover, Select, SelectValue, Calendar, CalendarCell, CalendarGrid, DateInput, DatePicker, DateSegment, Dialog, Group, Heading} from 'react-aria-components';
+import {Button, Label, ListBox, ListBoxItem, Popover, Select, SelectValue, Calendar, CalendarCell, CalendarGrid, DateInput, DatePicker, DateSegment, Dialog, Group, Heading, Text, DateValue, FieldError} from 'react-aria-components';
+import { today } from "@internationalized/date";
 import Image from 'next/image';
-import selectArrow from '../../../public/icons/select-arow.png'
-import calendarIcon from '../../../public/icons/calendar.png'
-import calendarNext from "../../../public/icons/calendar-next.png"
-
+import { set, useForm } from 'react-hook-form';
+import selectArrow from '../../../public/icons/select-arow.png';
+import calendarIcon from '../../../public/icons/calendar.png';
+import calendarNext from "../../../public/icons/calendar-next.png";
 
 export default function Reservation() {
 
@@ -45,85 +46,136 @@ export default function Reservation() {
   ])
 
   const guests = ([
-    {id: 1, value: 1},
-    {id: 2, value: 2},
-    {id: 3, value: 3},
-    {id: 4, value: 4},
-    {id: 5, value: 5},
-    {id: 6, value: 6},
-    {id: 7, value: 7},
-    {id: 8, value: 8},
-    {id: 9, value: 9},
-    {id: 10, value: 10}
+    {id: 1, val: 1},
+    {id: 2, val: 2},
+    {id: 3, val: 3},
+    {id: 4, val: 4},
+    {id: 5, val: 5},
+    {id: 6, val: 6},
+    {id: 7, val: 7},
+    {id: 8, val: 8},
+    {id: 9, val: 9},
+    {id: 10, val: 10}
   ])
+
+  type FormValues = {
+    party: number | undefined;
+    date: DateValue | undefined;
+    time: string | undefined;
+  }
+
+  const { register, handleSubmit, setValue, watch, formState: { errors }} = useForm<FormValues>({
+    defaultValues: {
+      party: undefined,
+      date: today('UTC'),
+      time: undefined
+    }
+  })
+
+  const selectedParty = watch('party');
+  const selectedDate = watch('date')
+  const selectedTime = watch('time');
+
+  const onSubmit = (data: FormValues) => {
+      console.log("Party Size:", data.party === undefined ? data.party : `${data.party === 1 ? " guest" : " guests" }`)
+      console.log("Date:", `${data.date?.month}/${data.date?.day}/${data.date?.year}`)
+      console.log("Scheduled Time:", data.time)
+  }
 
   const ReservationForm = () => {
     return(
-        <form action="" className={styles.form1}>
-              <Select name='party' id='party' className={formStyles.select} aria-label='Select number of guests'>
-                <Label htmlFor='party' >Party Size</Label>
+        <form onSubmit={handleSubmit(onSubmit)} className={styles.form1}>
+          <Select 
+          name='party' 
+          id='party' 
+          className={formStyles.select} 
+          aria-label='Select number of guests'
+          isRequired
+          onSelectionChange={(value) => {
+            const partyValue = value ? parseInt(value.toString()) : undefined;
+            setValue('party', partyValue);
+          }}
+          >
+                <Label htmlFor='party'>Party Size</Label>
                   <Button aria-label='label'>
                     <SelectValue>
-                    {({defaultChildren, isPlaceholder}) => {
-                      return isPlaceholder ? <>Number of guests</> : defaultChildren;
-                    }}
+                    {!selectedParty ? <>Number of guests</> : `${selectedParty} ${selectedParty === 1 ? " guest" : "guests"}`}
                     </SelectValue>
                     <span aria-hidden="true"><Image src={selectArrow} alt=''/></span>
                   </Button>
-                  {/* <FieldError /> */}
+                  <FieldError/>
                   <Popover className={formStyles.popover} trigger='Select' offset={0}>
                     <ListBox className={formStyles.listbox}>
                     {guests.map((item) => (
-                        <ListBoxItem key={item.id} id={item.value} className={formStyles.listboxitems}>
-                          {item.value === 1 ? item.value + ' guest' : item.value + ' guests'}
+                        <ListBoxItem key={item.id} id={item.val} className={formStyles.listboxitems}>
+                          {item.val === 1 ? item.val + ' guest' : item.val + ' guests'}
                         </ListBoxItem>
                       ))}
                     </ListBox>
                   </Popover>
-                </Select>
-            <DatePicker name='date' id='date' className={formStyles.datepicker} aria-label='Pick a date'>
+            </Select>
+            <DatePicker 
+              name='date' 
+              id='date' 
+              className={formStyles.datepicker} 
+              aria-label='Pick a date'
+              value={selectedDate}
+              onChange={(date) => setValue('date', date || undefined)}
+              minValue={today('UTC')}
+              defaultValue={today('UTC')}
+              isDateUnavailable={(date) => {
+                return date.toDate('Asia/Manila').getDay() === 1;
+              }}
+            >
               <Label htmlFor='date'>Date</Label>
-                <Group className={formStyles.datepickergroup}>
-                  <DateInput className={formStyles.dateinput}>
-                    {(segment) => <DateSegment segment={segment} />}
-                  </DateInput>
-                  <Button><span aria-hidden="true"><Image src={calendarIcon} alt=''/></span></Button>
-                </Group>
-                <Popover className={formStyles.datepopover}>
-                  <Dialog>
-                    <Calendar className={formStyles.calendar}>
-                      <header className='flex justify-between'>
-                        <Button slot="previous"><Image src={calendarNext} className='rotate-90' alt=''/></Button>
-                        <Heading className={formStyles.heading} />
-                        <Button slot="next"><Image src={calendarNext} className='rotate-270' alt=''/></Button>
-                      </header>
-                      <CalendarGrid className={formStyles.calendargrid}>
-                        {(date) => <CalendarCell date={date} className={formStyles.calendarcell} />}
-                      </CalendarGrid>
-                    </Calendar>
-                  </Dialog>
-                </Popover>
-              </DatePicker>  
-              <Select name='time' id='time' className={formStyles.select} aria-label='Select a time'>
-              <Label htmlFor='time'>Time</Label>
-                  <Button>
-                    <SelectValue>
-                    {({defaultChildren, isPlaceholder}) => {
-                      return isPlaceholder ? <>Select a time</> : defaultChildren;
-                    }}
-                    </SelectValue>
-                    <span aria-hidden="true"><Image src={selectArrow} alt=''/></span>
-                  </Button>
-                  <Popover className={formStyles.popover} offset={0}>
-                    <ListBox>
+              <Group className={formStyles.datepickergroup}>
+                <DateInput className={formStyles.dateinput}>
+                  {(segment) => <DateSegment segment={segment}/>}
+                </DateInput>
+                <Button><span aria-hidden="true"><Image src={calendarIcon} alt=''/></span></Button>
+              </Group>
+              <Text slot="description" className='italic'>Closed during Mondays</Text>
+              <Popover className={formStyles.datepopover}>
+                <Dialog>
+                  <Calendar className={formStyles.calendar}>
+                    <header className='flex justify-between'>
+                      <Button slot="previous"><Image src={calendarNext} className='rotate-90' alt=''/></Button>
+                      <Heading className={formStyles.heading} />
+                      <Button slot="next"><Image src={calendarNext} className='rotate-270' alt=''/></Button>
+                    </header>
+                    <CalendarGrid className={formStyles.calendargrid}>
+                      {(date) => <CalendarCell date={date} className={formStyles.calendarcell} />}
+                    </CalendarGrid>
+                  </Calendar>
+                </Dialog>
+              </Popover>
+            </DatePicker>  
+              <Select 
+                name='time' 
+                id='time' 
+                className={formStyles.select} 
+                aria-label='Select time'
+                onSelectionChange={(value) => {
+                  setValue('time', value?.toString() || undefined)
+                }}
+              >
+                 <Label htmlFor='time'>Time</Label>
+                <Button>
+                  <SelectValue>
+                    {!selectedTime ? <>Select a time</> : time.find(t => t.value === selectedTime)?.time}
+                  </SelectValue>
+                  <span aria-hidden="true"><Image src={selectArrow} alt=''/></span>
+                </Button>
+                <Popover className={formStyles.popover} offset={0}>
+                  <ListBox>
                     {time.map((item) => (
-                        <ListBoxItem key={item.id} id={item.value} className={formStyles.listboxitems}>
-                          {item.time}
-                        </ListBoxItem>
-                      ))}
-                    </ListBox>
-                  </Popover>
-                </Select>
+                      <ListBoxItem key={item.id} id={item.value} className={formStyles.listboxitems}>
+                        {item.time}
+                      </ListBoxItem>
+                    ))}
+                  </ListBox>
+                </Popover>
+              </Select>
             <button type='submit'>Find a Table</button>
         </form>
     )
