@@ -5,7 +5,7 @@ import formStyles from "../styles/FormComponents.module.scss"
 import {Button, Label, ListBox, ListBoxItem, Popover, Select, SelectValue, Calendar, CalendarCell, CalendarGrid, DateInput, DatePicker, DateSegment, Dialog, Group, Heading, Text, DateValue, FieldError} from 'react-aria-components';
 import { today } from "@internationalized/date";
 import Image from 'next/image';
-import { set, useForm } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import selectArrow from '../../../public/icons/select-arow.png';
 import calendarIcon from '../../../public/icons/calendar.png';
 import calendarNext from "../../../public/icons/calendar-next.png";
@@ -64,7 +64,8 @@ export default function Reservation() {
     time: string | undefined;
   }
 
-  const { register, handleSubmit, setValue, watch, formState: { errors }} = useForm<FormValues>({
+  // const { register, handleSubmit, setValue, watch, formState: { errors }} = useForm<FormValues>({
+  const { handleSubmit, setValue, watch } = useForm<FormValues>({
     defaultValues: {
       party: undefined,
       date: today('UTC'),
@@ -77,7 +78,7 @@ export default function Reservation() {
   const selectedTime = watch('time');
 
   const onSubmit = (data: FormValues) => {
-      console.log("Party Size:", data.party === undefined ? data.party : `${data.party === 1 ? " guest" : " guests" }`)
+      console.log("Party Size:", data.party, data.party === 1 ? "guest" : "guests")
       console.log("Date:", `${data.date?.month}/${data.date?.day}/${data.date?.year}`)
       console.log("Scheduled Time:", data.time)
   }
@@ -91,6 +92,7 @@ export default function Reservation() {
           className={formStyles.select} 
           aria-label='Select number of guests'
           isRequired
+          selectedKey={selectedParty}
           onSelectionChange={(value) => {
             const partyValue = value ? parseInt(value.toString()) : undefined;
             setValue('party', partyValue);
@@ -103,7 +105,7 @@ export default function Reservation() {
                     </SelectValue>
                     <span aria-hidden="true"><Image src={selectArrow} alt=''/></span>
                   </Button>
-                  <FieldError/>
+                  <FieldError className='text-[#f30505] italic'>Please select number of guests</FieldError>
                   <Popover className={formStyles.popover} trigger='Select' offset={0}>
                     <ListBox className={formStyles.listbox}>
                     {guests.map((item) => (
@@ -155,6 +157,8 @@ export default function Reservation() {
                 id='time' 
                 className={formStyles.select} 
                 aria-label='Select time'
+                isRequired
+                selectedKey={selectedTime}
                 onSelectionChange={(value) => {
                   setValue('time', value?.toString() || undefined)
                 }}
@@ -166,6 +170,7 @@ export default function Reservation() {
                   </SelectValue>
                   <span aria-hidden="true"><Image src={selectArrow} alt=''/></span>
                 </Button>
+                <FieldError className='text-[#f30505] italic'>Please select a time</FieldError>
                 <Popover className={formStyles.popover} offset={0}>
                   <ListBox>
                     {time.map((item) => (
